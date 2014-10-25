@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="panel panel-default">
+
+<div class=" panel-heading bg-success"><h1 class="text-info">Carnet de contacts</h1></div>
+<div class="panel-body">
+        <div>Votre carnet contient {{data.length}} contacts
+            </div><hr/>
+<table class="table" > <!--data table -->
+    <thead>
+    <!--Display sorted Data-->
+    <tr class="text-info">
+        <th ng-click=" reverse=false;order('name.v', false)" ng-dblclick=" reverse=!reverse;order('name.v', reverse)"><a href=""><h4>Nom</h4></a></th>
+        <th ng-click="order('firstName.v', reverse)" ng-dblclick="reverse=!reverse;order('firstName.v', reverse)"><a href=""><h4>Prénom</h4></a></th>
+        <th ng-click="order('birthDate.v', reverse)" ng-dblclick="reverse=!reverse;order('birthDate.v', reverse)"><a href=""><h4>Age</h4></a></th>
+        <th ng-click="order('tel.v', reverse)" ng-dblclick="reverse=!reverse;order('tel.v', reverse)"><a href=""><h4>Teléphone</h4></a></th>
+        <th ng-click="order('address.v', reverse)" ng-dblclick="reverse=!reverse;order('address.v', reverse)"><a href=""><h4>Adresse </h4></a></th>
+    </tr>
+    </thead>
+            <tbody>
+            <tr ng-repeat="value in data" ng-class="test(value.birthDate.v)">
+            <td >{{value.name.v}}</td>
+            <td >{{value.firstName.v}}</td>
+            <td >{{value.birthDate.v|Age}}</td>
+            <td class="text-info"><a ng-click="telephone(value.tel.v)">{{value.tel.v}}</a></td>
+            <td class="text-info"><a href="https://www.google.tn/maps/place/{{value.address.v}}">{{value.address.v}}</a></td></tr>
+            </tbody>
+</table>
+     </div>
+        </div>
+</body>
+</html>
